@@ -1,0 +1,2 @@
+# mhbot
+MHEra discord bot
