@@ -1,5 +1,6 @@
 {
 	"ownerid": "OWNERIDHERE",
 	"prefix": "%",
-	"token": "TOKENHERE"
+	"token": "TOKENHERE",
+	"hrroles": [1, 4, 7, 100]
 }
