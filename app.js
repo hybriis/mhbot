@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const settings = require('./settings.json');
+//const settings = require('./settings.json');
 const chalk = require('chalk');
 const fs = require('fs');
 const moment = require('moment');
@@ -59,4 +59,4 @@ client.on('error', e => {
 });
 
 // Use heroku token if running from heroku, settings.json token otherwise
-client.login(process.env.BOT_TOKEN == null ? settings.token : process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN == null ? require('./token.json').token : process.env.BOT_TOKEN);
