@@ -4,7 +4,8 @@
   "description": "MH Era bot",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "Hybris",
   "license": "MIT",
@@ -15,6 +16,7 @@
     "return-deep-diff": "^0.2.9"
   },
   "engines": {
-    "node": "9.4.0"
+    "node": "9.4.0",
+    "npm": "5.6.0"
   }
 }
