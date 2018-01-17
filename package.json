@@ -1,6 +1,6 @@
 {
   "name": "mhbot",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "MH Era bot",
   "main": "app.js",
   "scripts": {
@@ -13,5 +13,8 @@
     "discord.js": "^11.2.1",
     "moment": "^2.20.1",
     "return-deep-diff": "^0.2.9"
+  },
+  "engines": {
+    "node": "9.4.0"
   }
 }
