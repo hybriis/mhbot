@@ -1,5 +1,6 @@
 exports.run = (client, message, args) => {
-  if (args[0] === 'Xbox') {
+  let argUpper = args[0].toUpperCase();
+  if (argUpper === 'XBOX') {
     let role = message.guild.roles.find('name','Xbox');
     if (message.member.roles.exists('name','Xbox')) {
       message.channel.send('You already have the ' + role.name + ' role.');
@@ -7,7 +8,7 @@ exports.run = (client, message, args) => {
       message.member.addRole(role);
       message.channel.send('Added ' + role.name + ' platform to ' + message.member.displayName + '.');
     }
-  } else if (args[0] === 'PS4') {
+  } else if (argUpper === 'PS4') {
     let role = message.guild.roles.find('name','PS4');
     if (message.member.roles.exists('name','PS4')) {
       message.channel.send('You already have the ' + role.name + ' role.');
@@ -15,7 +16,7 @@ exports.run = (client, message, args) => {
       message.member.addRole(role);
       message.channel.send('Added ' + role.name + ' platform to ' + message.member.displayName + '.');
     }
-  } else if (args[0] === 'PC') {
+  } else if (argUpper === 'PC') {
     let role = message.guild.roles.find('name','PC');
     if (message.member.roles.exists('name','PC')) {
       message.channel.send('You already have the ' + role.name + ' role.');
@@ -24,7 +25,7 @@ exports.run = (client, message, args) => {
       message.channel.send('Added ' + role.name + ' platform to ' + message.member.displayName + '.');
     }
   } else
-    message.channel.send(args[0] + ' is not a recognized platform.');
+    message.channel.send(argUpper + ' is not a recognized platform.');
 };
 
 exports.conf = {
