@@ -1,31 +1,33 @@
 exports.run = (client, message, args) => {
   let argUpper = args[0].toUpperCase();
+  let user = message.member;
+  let channel = message.channel;
   if (argUpper === 'XBOX') {
     let role = message.guild.roles.find('name','Xbox');
-    if (!message.member.roles.exists('name','Xbox')) {
-      message.channel.send('You don\'t have the ' + role.name + ' role.');
+    if (!user.roles.exists('name','Xbox')) {
+      channel.send('You don\'t have the ' + role.name + ' role.');
     } else {
-      message.member.removeRole(role);
-      message.channel.send('Removed ' + role.name + ' role from ' + message.member.displayName + '.');
+      user.removeRole(role);
+      channel.send('Removed ' + role.name + ' role from ' + user.displayName + '.');
     }
   } else if (argUpper === 'PS4') {
     let role = message.guild.roles.find('name','PS4');
-    if (!message.member.roles.exists('name','PS4')) {
-      message.channel.send('You don\'t have the ' + role.name + ' role.');
+    if (!user.roles.exists('name','PS4')) {
+      channel.send('You don\'t have the ' + role.name + ' role.');
     } else {
-      message.member.removeRole(role);
-      message.channel.send('Removed ' + role.name + ' role from ' + message.member.displayName + '.');
+      user.removeRole(role);
+      channel.send('Removed ' + role.name + ' role from ' + user.displayName + '.');
     }
   } else if (argUpper === 'PC') {
     let role = message.guild.roles.find('name','PC');
-    if (!message.member.roles.exists('name','PC')) {
-      message.channel.send('You don\'t have the ' + role.name + ' role.');
+    if (!user.roles.exists('name','PC')) {
+      channel.send('You don\'t have the ' + role.name + ' role.');
     } else {
-      message.member.removeRole(role);
-      message.channel.send('Removed ' + role.name + ' role from ' + message.member.displayName + '.');
+      user.removeRole(role);
+      channel.send('Removed ' + role.name + ' role from ' + user.displayName + '.');
     }
   } else
-    message.channel.send(argUpper + ' is not a recognized platform.');
+    channel.send(argUpper + ' is not a recognized platform.');
 };
 
 exports.conf = {
