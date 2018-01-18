@@ -1,4 +1,5 @@
 {
 	"ownerid": "98955089045123072",
-	"prefix": "%"
+	"prefix": "%",
+	"platforms": ["Xbox","PS4","PC","Switch","3DS"]
 }

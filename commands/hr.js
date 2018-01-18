@@ -46,7 +46,7 @@ exports.run = (client, message, args) => {
           message.member.removeRole(role);
       });
 
-      message.channel.send('HR set to ' + hr + '.');
+      message.react('👍');
     } else message.channel.send('No matching HR role found.');
 
     // TODO: setup persistant storage (mongodb?) to store the exact HR

@@ -1,33 +1,18 @@
+//const settings = require('../settings.json');
 exports.run = (client, message, args) => {
   let argUpper = args[0].toUpperCase();
   let user = message.member;
-  let channel = message.channel;
-  if (argUpper === 'XBOX') {
-    let role = message.guild.roles.find('name','Xbox');
-    if (user.roles.exists('name','Xbox')) {
-      channel.send('You already have the ' + role.name + ' role.');
-    } else {
-      user.addRole(role);
-      channel.send('Added ' + role.name + ' platform to ' + user.displayName + '.');
-    }
-  } else if (argUpper === 'PS4') {
-    let role = message.guild.roles.find('name','PS4');
-    if (user.roles.exists('name','PS4')) {
-      channel.send('You already have the ' + role.name + ' role.');
-    } else {
-      user.addRole(role);
-      channel.send('Added ' + role.name + ' platform to ' + user.displayName + '.');
-    }
-  } else if (argUpper === 'PC') {
-    let role = message.guild.roles.find('name','PC');
-    if (user.roles.exists('name','PC')) {
-      channel.send('You already have the ' + role.name + ' role.');
-    } else {
-      user.addRole(role);
-      channel.send('Added ' + role.name + ' platform to ' + user.displayName + '.');
-    }
-  } else
-    channel.send(args[0] + ' is not a recognized platform.');
+  let role;
+
+  if (argUpper === 'XBOX') role = message.guild.roles.find('name','Xbox');
+  else if (argUpper === 'PS4') role = message.guild.roles.find('name','PS4');
+  else if (argUpper === 'PC') role = message.guild.roles.find('name','PC');
+  else message.channel.send(args[0] + ' is not a recognized platform.');
+
+  if (role != null && user != null)
+    user.addRole(role)
+      .then(message.react('👍'))
+      .catch( function (e) { console.log(e); });
 };
 
 exports.conf = {
