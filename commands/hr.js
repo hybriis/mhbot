@@ -32,7 +32,7 @@ exports.run = (client, message, args) => {
       }
     });
 
-    if (newRole != null) {
+    if (newRole != null && message.member != null) {
       // add matching HR role if it's not already there
       if (!message.member.roles.exists('name', newRole.name))
         message.member.addRole(newRole);
