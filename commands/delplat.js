@@ -9,7 +9,7 @@ exports.run = (client, message, args) => {
   else message.channel.send(args[0] + ' is not a recognized platform.');
 
   if (role != null && user != null)
-    user.addRole(role)
+    user.removeRole(role)
       .then(message.react('👍'))
       .catch( function (e) { console.log(e); });
 };
