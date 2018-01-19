@@ -1,4 +1,5 @@
 const settings = require('../settings.json');
+const utils = require('../util/utilities.js');
 module.exports = message => {
   let client = message.client;
   if (message.author.bot) return;
@@ -11,16 +12,6 @@ module.exports = message => {
   } else if (client.aliases.has(command)) {
     cmd = client.commands.get(client.aliases.get(command));
   }
-  if (cmd) {
-    cmd.run(client, message, params);
-  } else {
-    // yamad check :yamasmile:
-    try {
-      message.react(message.client.emojis.find('name','yamad'));
-    } catch (err) {
-      console.log('Emjoi \'yamad\' is not on this server.');
-      message.react('👎');
-    }
-  }
-
+  if (cmd) cmd.run(client, message, params);
+  else utils.failReact(message);
 };
