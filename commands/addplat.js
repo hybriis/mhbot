@@ -1,7 +1,10 @@
-//const settings = require('../settings.json');
+const utils = require('../util/utilities.js');
 exports.run = (client, message, args) => {
+  if (args[0] == null) {
+    message.channel.send('Please provide a platform.');
+    return;
+  }
   let argUpper = args[0].toUpperCase();
-  let user = message.member;
   let role;
 
   if (argUpper === 'XBOX') role = message.guild.roles.find('name','Xbox');
@@ -9,10 +12,13 @@ exports.run = (client, message, args) => {
   else if (argUpper === 'PC') role = message.guild.roles.find('name','PC');
   else message.channel.send(args[0] + ' is not a recognized platform.');
 
-  if (role != null && user != null)
-    user.addRole(role)
-      .then(message.react('👍'))
-      .catch( function (e) { console.log(e); });
+  message.guild.fetchMember(message.author)
+    .then((member) => {
+      member.addRole(role)
+        .then(() => utils.successReact(message))
+        .catch((e) => console.log('Role for ' + argUpper + ' not found on the server:\n' + e));
+    })
+    .catch(e => console.log('Error retrieving guild member.\n' + e));
 };
 
 exports.conf = {
