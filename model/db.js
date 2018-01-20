@@ -1,5 +1,5 @@
 let mongoose = require('mongoose');
-mongoose.connect(require('../token.json').db_uri);
+mongoose.connect(process.env.MONGODB_URI == null ? require('../token.json').db_uri : process.env.MONGODB_URI);
 
 // Connection events
 mongoose.connection.on('connected', () => {
