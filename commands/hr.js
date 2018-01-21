@@ -61,7 +61,7 @@ exports.run = (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['hunterrank'],
+  aliases: ['hunterrank','HR'],
 };
 
 exports.help = {
