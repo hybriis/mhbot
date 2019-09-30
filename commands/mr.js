@@ -57,7 +57,7 @@ exports.run = (client, message, args) => {
     // TODO: setup persistant storage (mongodb?) to store the exact MR
   }
 };
-
+//end module
 exports.conf = {
   enabled: true,
   guildOnly: false,
