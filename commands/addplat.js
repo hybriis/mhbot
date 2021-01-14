@@ -10,6 +10,9 @@ exports.run = (client, message, args) => {
   if (argUpper === 'XBOX') role = message.guild.roles.find('name','Xbox');
   else if (argUpper === 'PS4') role = message.guild.roles.find('name','PS4');
   else if (argUpper === 'PC') role = message.guild.roles.find('name','PC');
+  else if (argUpper === 'PS5') role = message.guild.roles.find('name','PS5');
+  else if (argUpper === 'XBOXSERIESX') role = message.guild.roles.find('name','Xbox Series X');
+  else if (argUpper === 'SWITCH') role = message.guild.roles.find('name','Switch');
   else message.channel.send(args[0] + ' is not a recognized platform.');
 
   message.guild.fetchMember(message.author)
@@ -29,6 +32,6 @@ exports.conf = {
 
 exports.help = {
   name: 'addplat',
-  description: 'Adds platform role. Platforms: PS4, Xbox, PC',
+  description: 'Adds platform role. Platforms: PS4, Xbox, PC, , PS5, XboxSeriesX, Switch',
   usage: 'addplat [platform]'
 };
